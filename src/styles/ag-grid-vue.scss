@@ -1,0 +1,177 @@
+body {
+  --ag-border-color: #ebeef5;
+  --ag-odd-row-background-color: #fafafa;
+  --ag-header-background-color: #f2f3f7; // #ebeef5;
+  --ag-row-hover-color: #e9f0f9; // #f5f7fa;
+  --ag-row-border-color: #ebeef5;
+  --ag-selected-row-background-color: #f5f7fa;
+  --ag-header-foreground-color: #5d5d5d; // #5d5d5d #1a1a1a #909399
+  --ag-data-color: #606266;
+  --ag-header-column-separator-color: #ebeef5; // #ebeef5;
+  --ag-focus-row-background-color: #fbb478;
+}
+
+body {
+  .ag-cell-value {
+    width: 100%;
+  }
+
+  .ag-row.ag-row-focus {
+    background-color: var(--ag-focus-row-background-color);
+  }
+
+  .ag-theme-balham .el-button--text:not(.is-disabled) {
+    color: var(--theme-color);
+  }
+
+  .ag-theme-balham .ag-header-cell::after,
+  .ag-theme-balham .ag-header-group-cell::after {
+    height: 100%;
+    top: 0;
+  }
+
+  .ag-header-cell.ag-center-cell {
+    .ag-header-cell-label {
+      justify-content: center;
+    }
+  }
+  .ag-header-cell.ag-left-cell {
+    .ag-header-cell-label {
+      justify-content: flex-start;
+    }
+  }
+  .ag-header-cell.ag-right-cell {
+    .ag-header-cell-label {
+      justify-content: flex-end;
+    }
+  }
+
+  .ag-cell.ag-center-cell {
+    text-align: center;
+  }
+  .ag-cell.ag-left-cell {
+    text-align: left;
+  }
+  .ag-cell.ag-right-cell {
+    text-align: right;
+  }
+
+  .ag-theme-balham .ag-root-wrapper-body {
+    margin-bottom: -1px;
+  }
+
+  /** 表格高度自适应 */
+  .height-auto .ag-root-wrapper-body.ag-layout-normal {
+    height: initial !important;
+    min-height: 170px;
+  }
+
+  .height-auto .ag-root.ag-layout-normal {
+    height: initial !important;
+  }
+
+  .height-auto .ag-pinned-right-cols-container {
+    overflow: hidden;
+  }
+
+  .height-auto .ag-body-viewport.ag-layout-normal {
+    overflow: hidden;
+  }
+
+  /** 显示 checkbox 禁用样式 */
+  .ag-theme-balham .show-hide-checkbox .ag-checkbox-input-wrapper {
+    background-color: #edf2fc;
+    cursor: not-allowed;
+    &::after {
+      color: #dcdfe6;
+      cursor: not-allowed;
+      pointer-events: initial;
+    }
+  }
+
+  .ag-cell-value {
+    font-size: 14px;
+    font-weight: 400;
+    color: #606266;
+  }
+
+  .ag-header-cell-text {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .ag-theme-balham .ag-checkbox-input-wrapper:focus-within,
+  .ag-theme-balham .ag-checkbox-input-wrapper:active {
+    box-shadow: none;
+  }
+
+  .ag-theme-balham .ag-checkbox-input-wrapper input,
+  .ag-theme-balham .ag-checkbox-input-wrapper input {
+    cursor: pointer;
+  }
+
+  .ag-theme-balham
+    .ag-row:not(.ag-row-hover):not(.ag-row-focus).ag-row-odd.ag-row-selected {
+    background-color: var(--ag-odd-row-background-color);
+  }
+  .ag-theme-balham
+    .ag-row:not(.ag-row-hover):not(.ag-row-focus).ag-row-selected {
+    background-color: transparent;
+  }
+
+  .ag-theme-balham .ag-ltr .ag-cell {
+    border-left-color: var(--ag-border-color, #ebeef5);
+    border-right-color: var(--ag-border-color, #ebeef5);
+  }
+
+  // .ag-theme-balham .ag-ltr .ag-row-focus .ag-cell{
+  //   border-left-color: var(--ag-focus-row-background-color, #ebeef5);
+  //   border-right-color: var(--ag-focus-row-background-color, #ebeef5);
+  // }
+
+  .ag-theme-balham .ag-cell,
+  .ag-theme-balham .ag-full-width-row .ag-cell-wrapper.ag-row-group {
+    border: none;
+  }
+
+  .ag-pinned-right-cols-container {
+    box-shadow: 0px -5px 10px #0000001f;
+    margin-left: -1px;
+  }
+
+  .ag-pinned-left-cols-container {
+    box-shadow: 0 -5px 10px #0000001f;
+    position: relative;
+    z-index: 1;
+    margin-right: -1px;
+  }
+
+  .ag-theme-balham .ag-pinned-right-header {
+    box-shadow: 0 0 10px #0000001f;
+  }
+
+  .ag-theme-balham .ag-pinned-left-header {
+    box-shadow: 0 0 10px #0000001f;
+  }
+
+  .ag-center-cols-viewport {
+    &::-webkit-scrollbar-track-piece {
+      background: transparent;
+    }
+  }
+}
+
+// // 用于表格全行高
+.full-width-panel {
+  white-space: normal;
+  height: calc(100% - 40px);
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+  padding: 5px;
+  background-color: #fff;
+  user-select: text;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 20px;
+}
