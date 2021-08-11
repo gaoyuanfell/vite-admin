@@ -23,16 +23,6 @@ export default defineComponent({
     };
   },
   mounted() {
-    // let table = this.parent.$parent.table;
-    // let column = this.params.column;
-    // let rowIndex = this.params.rowIndex;
-    // let data = this.params.data;
-    // let treeKey = table.treeKey;
-    // const scope = {
-    //   $index: rowIndex,
-    //   row: data,
-    //   column: column
-    // };
     this.$nextTick(() => {
       const { zIndex } = rowMap.get(this.params.data);
       const parentNode = this.$refs.tree && this.$refs.tree.parentNode;
@@ -96,35 +86,37 @@ export default defineComponent({
         this.params.api.applyTransaction({ add: children, addIndex: index + 1 });
         this.setTableData(tableData);
       } else {
-        this.remove(children, tableData);
+        let treeKey = table.treeKey;
+        let removeList = []
+        this.remove(children, tableData, treeKey, removeList);
+        this.params.api.applyTransaction({ remove: removeList });
         this.setTableData(tableData);
         this.action = "add";
         scope.row.$action = "add";
       }
       setTimeout(() => {
-        table.autoWidth();
-      }, 250);
+        setTimeout(() => {
+          table.autoWidth()
+        }, 250)
+      }, 250)
     },
-    remove(item, tableData) {
-      let table = this.parent.$parent.table;
-      let treeKey = table.treeKey;
+    remove(item, tableData, treeKey, removeList) {
       if (item instanceof Array) {
         item.forEach((_item) => {
-          this.remove(_item, tableData);
+          this.remove(_item, tableData, treeKey, removeList);
         });
       } else {
         const children = [...item[treeKey]];
-        if (children instanceof Array && children.length) {
+        if (children instanceof Array && children.length && item.$action === "remove") {
           item.$action = "add";
-          this.remove(children, tableData);
+          this.remove(children, tableData, treeKey, removeList);
         }
         const index = tableData.findIndex((_item) => _item === item);
         if (index !== -1) {
-          this.params.api.applyTransaction({ remove: [item] });
+          removeList.push(item)
           tableData.splice(index, 1);
         }
       }
-      return tableData;
     }
   }
 });

@@ -11,6 +11,7 @@
     "ag-grid-vue3": "^25.3.1",
     "ant-design-vue": "^2.2.3",
     "element-plus": "^1.0.2-beta.70",
+    "exif-js": "^2.3.0",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
     "vue": "^3.1.5",

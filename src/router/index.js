@@ -13,6 +13,11 @@ const router = createRouter({
       name: "Grid",
       component: () => import(/* webpackChunkName: "grid" */ "@/views/Grid.vue")
     },
+    {
+      path: "/exif",
+      name: "Exif",
+      component: () => import(/* webpackChunkName: "exif" */ "@/views/Exif.vue")
+    },
   ]
 });
 export default router;

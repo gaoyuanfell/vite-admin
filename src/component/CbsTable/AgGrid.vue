@@ -104,14 +104,14 @@ export default defineComponent({
         this.autoWidth()
       })
     },
-    'rowData.length'(val, oldValue) {
-      if (val > oldValue) {
-        this.$nextTick(() => {
-          this.isFirstDataRendered = true
-          this.autoWidth()
-        })
-      }
-    }
+    // 'rowData.length'(val, oldValue) {
+    //   if (val > oldValue) {
+    //     this.$nextTick(() => {
+    //       this.isFirstDataRendered = true
+    //       this.autoWidth()
+    //     })
+    //   }
+    // }
   },
   methods: {
     onGridReady() {
