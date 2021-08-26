@@ -11,12 +11,15 @@ app.config.productionTip = false;
 /** element */
 import ElementPlus from "element-plus";
 import "element-plus/lib/theme-chalk/index.css";
-app.use(ElementPlus);
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+app.use(ElementPlus, {
+  locale: zhCn,
+})
 
 /** ant-design */
-import Antd from "ant-design-vue";
-import "ant-design-vue/dist/antd.css";
-app.use(Antd);
+// import Antd from "ant-design-vue";
+// import "ant-design-vue/dist/antd.css";
+// app.use(Antd);
 
 /** component */
 import CbsComponent from "@/component/CbsComponent.vue";

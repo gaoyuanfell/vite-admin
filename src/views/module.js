@@ -149,6 +149,7 @@ export function module() {
         },
         click: (item, event) => {
           event.stopPropagation();
+          console.info(item)
         }
       }
     ]

@@ -1,10 +1,25 @@
 <template>
   <cbs-table :module="module" :data="dataTree" :tree="true" :showTableSelection="true" :isRowSelectable="isRowSelectable">
-    <!-- <template #operationTag="{ scope }">
-      <span>{{ scope.row.pageName }}</span>
-    </template> -->
     <template #operations="{ scope }">
-      <el-button type="text" @click="test(scope)">编辑</el-button>
+      <el-button type="text" size="small" @click="test(scope)">支付</el-button>
+    </template>
+    <template #visibleConditions="{ scope }">
+      <el-form-item label="活动名称">
+        <el-input v-model="scope.sss"></el-input>
+      </el-form-item>
+      <el-form-item label="活动名称">
+        <el-input v-model="scope.sss"></el-input>
+      </el-form-item>
+      <el-form-item label="活动名称">
+        <el-input v-model="scope.sss"></el-input>
+      </el-form-item>
+      <el-form-item label="活动名称">
+        <el-input v-model="scope.sss"></el-input>
+      </el-form-item>
+    </template>
+
+    <template #toolbar>
+      <el-button type="primary" icon="el-icon-add-location" size="mini">新增</el-button>
     </template>
   </cbs-table>
 </template>
